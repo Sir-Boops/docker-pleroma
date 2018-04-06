@@ -7,9 +7,13 @@ RUN apk -U add --virtual deps \
         cd ~ && \
         wget https://git.pleroma.social/pleroma/pleroma/repository/v$PL_VER/archive.tar.gz && \
         tar xf archive.tar.gz && \
-        cd pleroma-v* && \
+        mkdir /opt/ && \
+        mv ~/pleroma-*/ /opt/pleroma/ && \
+        cd /opt/pleroma && \
         mix local.hex --force && \
         mix deps.get && \
         mix local.rebar --force && \
         mix deps.compile && \
-        mix compile
+        mix compile && \
+        rm -rf ~/* && \
+        apk del --purge deps
