@@ -3,7 +3,8 @@ FROM elixir:1.5.3-alpine
 ENV PL_VER="0.9.0"
 
 RUN apk -U add --virtual deps \
-            gcc g++ make git && \
+            gcc g++ make && \
+        apk add git && \
         cd ~ && \
         wget https://git.pleroma.social/pleroma/pleroma/repository/v$PL_VER/archive.tar.gz && \
         tar xf archive.tar.gz && \
