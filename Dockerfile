@@ -13,5 +13,4 @@ RUN apk -U add gcc g++ \
         mix deps.get && \
         mix local.rebar --force && \
         mix deps.compile && \
-        mix compile && \
-        rm -rf ~/*
+        mix compile
