@@ -2,10 +2,6 @@ FROM elixir:1.5.3-alpine
 
 ENV PL_VER="0.9.0"
 
-RUN addgroup pleroma && \
-        adduser -H -D -G pleroma pleroma && \
-        echo "pleroma:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -m sha256`" | chpasswd
-
 RUN apk -U add gcc g++ \
             make git && \
         cd ~ && \
@@ -19,5 +15,4 @@ RUN apk -U add gcc g++ \
         mix local.rebar --force && \
         mix deps.compile && \
         mix compile && \
-        rm -rf ~/* && \
-        chown 1000:1000 -R /opt/pleroma/*
+        rm -rf ~/*
