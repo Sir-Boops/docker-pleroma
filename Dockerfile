@@ -6,9 +6,8 @@ RUN addgroup pleroma && \
         adduser -H -D -G pleroma pleroma && \
         echo "pleroma:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -m sha256`" | chpasswd
 
-RUN apk -U add --virtual deps \
-            gcc g++ make && \
-        apk add git && \
+RUN apk -U add gcc g++ \
+            make git && \
         cd ~ && \
         wget https://git.pleroma.social/pleroma/pleroma/repository/v$PL_VER/archive.tar.gz && \
         tar xf archive.tar.gz && \
@@ -21,5 +20,4 @@ RUN apk -U add --virtual deps \
         mix deps.compile && \
         mix compile && \
         rm -rf ~/* && \
-        apk del --purge deps && \
         chown 1000:1000 -R /opt/pleroma/*
