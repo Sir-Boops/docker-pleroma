@@ -1,6 +1,6 @@
 FROM elixir:1.5.3-alpine
 
-ENV COMMIT_HASH="303289d7daac3a51f991bb8603f36628a5d944c1"
+ENV COMMIT_HASH="86058c9a8883c5f6c71f1d3553ca52f658fdf79e"
 
 RUN apk -U add gcc g++ \
             make git && \
