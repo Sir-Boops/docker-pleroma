@@ -1,6 +1,6 @@
 FROM elixir:1.5.3-alpine
 
-ENV COMMIT_HASH="86058c9a8883c5f6c71f1d3553ca52f658fdf79e"
+ENV COMMIT_HASH="fef8daa454ab04ac2394e02efcc2b48c1fbad91c"
 
 RUN apk -U add gcc g++ \
             make git && \
@@ -14,3 +14,7 @@ RUN apk -U add gcc g++ \
         mix local.rebar --force && \
         mix deps.compile && \
         mix compile
+
+COPY start.sh /opt/pleroma/
+
+ENTRYPOINT /bin/ash /opt/pleroma/start.sh
