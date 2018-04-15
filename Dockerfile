@@ -17,4 +17,4 @@ RUN apk -U add gcc g++ \
 
 COPY start.sh /opt/pleroma/
 
-ENTRYPOINT /bin/ash /opt/pleroma/start.sh
+CMD /bin/ash /opt/pleroma/start.sh
