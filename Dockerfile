@@ -9,8 +9,8 @@ RUN addgroup pleroma && \
 
 RUN apk -U add gcc g++ \
             make git && \
-        su - -s /bin/ash pleroma -c \
-            "git clone https://git.pleroma.social/pleroma/pleroma && \
+        su - -s /bin/ash pleroma -c \ " \
+            git clone https://git.pleroma.social/pleroma/pleroma && \
             cd /opt/pleroma/ && \
             git checkout $COMMIT_HASH . && \
             mix local.hex --force && \
