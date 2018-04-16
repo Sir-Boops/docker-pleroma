@@ -1,4 +1,3 @@
 #!/bin/ash
-cd /opt/pleroma
-mix ecto.migrate
-mix phx.server
+su - -s /bin/ash pleroma -c 'cd pleroma && mix ecto.migrate'
+su - -s /bin/ash pleroma -c 'cd pleroma && mix phx.server'
