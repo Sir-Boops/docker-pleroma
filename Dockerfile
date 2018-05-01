@@ -20,4 +20,4 @@ RUN cd ~ && \
     mix deps.compile && \
     mix compile
 
-CMD cd ~/pleroma && mix echo.migrate && mix phx.server
+CMD cd ~/pleroma && mix ecto.migrate && mix phx.server
