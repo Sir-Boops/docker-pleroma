@@ -20,5 +20,4 @@ RUN cd ~ && \
     mix deps.compile && \
     mix compile
 
-COPY start.sh /opt/pleroma/
-CMD /bin/ash /opt/pleroma/start.sh
+CMD cd ~/pleroma && mix echo.migrate && mix phx.server
