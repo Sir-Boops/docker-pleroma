@@ -20,5 +20,4 @@ RUN cd ~ && \
     mix deps.compile && \
     mix compile
 
-EXPOSE 4000
 CMD cd ~/pleroma && mix ecto.migrate && mix phx.server
