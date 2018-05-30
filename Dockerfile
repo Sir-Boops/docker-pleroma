@@ -1,6 +1,6 @@
 FROM elixir:1.5.3-alpine
 
-ENV COMMIT_HASH="1cd6194deeca32a96a31fc43c0ed27daadd65f64"
+ENV COMMIT_HASH="8bd7ace4203a06257eda19829a14e17e381724d9"
 
 RUN addgroup pleroma && \
         adduser -D -h /opt -G pleroma pleroma && \
