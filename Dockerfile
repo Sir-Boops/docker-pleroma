@@ -15,16 +15,10 @@ RUN cd ~ && \
     git clone https://git.pleroma.social/pleroma/pleroma && \
     cd /opt/pleroma/ && \
     git checkout $COMMIT_HASH . && \
-    mkdir -p /opt/pleroma/config
-
-COPY --chown=1000:1000 prod.secret.exs /opt/pleroma/config
-
-RUN cd /opt/pleroma && \
     mix local.hex --force && \
     mix deps.get && \
     mix local.rebar --force && \
     mix deps.compile && \
-    mix compile && \
-    rm -rf /opt/pleroma/config
+    mix compile
 
 CMD cd ~/pleroma && mix ecto.migrate && mix phx.server
