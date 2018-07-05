@@ -1,6 +1,6 @@
 # docker-pleroma
 
-A docker build script for pleroma
+A docker build script for pleroma.
 
 ## Features
 * Runs under uid/gid 1000
