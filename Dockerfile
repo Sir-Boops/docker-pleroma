@@ -7,7 +7,9 @@ RUN addgroup pleroma && \
         echo "pleroma:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -m sha256`" | chpasswd
 
 RUN apk -U add gcc g++ \
-        make git elixir
+        make git elixir \
+	erlang-runtime-tools \
+	erlang-xmerl
 
 USER pleroma
 RUN cd ~ && \
