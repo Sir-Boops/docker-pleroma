@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-ENV COMMIT_HASH="675653ceb78e4a64d8375904e555cdd62f064e21"
+ENV COMMIT_HASH="88b05aeabb23412530f6b74934bc3d2d3fe8c29f"
 
 RUN addgroup pleroma && \
         adduser -D -h /opt -G pleroma pleroma && \
@@ -8,8 +8,8 @@ RUN addgroup pleroma && \
 
 RUN apk -U add gcc g++ \
         make git elixir \
-	erlang-runtime-tools \
-	erlang-xmerl
+				erlang-runtime-tools \
+				erlang-xmerl
 
 USER pleroma
 RUN cd ~ && \
@@ -22,4 +22,5 @@ RUN cd ~ && \
     mix deps.compile && \
     mix compile
 
-CMD cd ~/pleroma && mix ecto.migrate && mix phx.server
+WORKDIR /opt/pleroma
+CMD mix ecto.migrate && mix phx.server
