@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-ENV COMMIT_HASH="88b05aeabb23412530f6b74934bc3d2d3fe8c29f"
+ENV COMMIT_HASH="7d86c0c53f6377119581ddc9e9dfe5c0937ffe01"
 
 RUN addgroup pleroma && \
         adduser -D -h /opt -G pleroma pleroma && \
