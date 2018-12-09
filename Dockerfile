@@ -8,8 +8,8 @@ RUN addgroup pleroma && \
 
 RUN apk -U add gcc g++ \
         make git elixir \
-				erlang-runtime-tools \
-				erlang-xmerl
+        erlang-runtime-tools \
+        erlang-xmerl
 
 USER pleroma
 RUN cd ~ && \
