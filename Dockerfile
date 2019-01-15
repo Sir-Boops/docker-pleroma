@@ -2,7 +2,7 @@ FROM sirboops/elixir:1.7.4-alpine as elixir
 FROM alpine:3.8
 
 # Set pleroma hash
-ENV COMMIT_HASH="f20bfc9ea5059735c02f8a7260733bc7efbc90bd"
+ENV COMMIT_HASH="9a444c0d22fc935c0e268c10d32c847125fd3627"
 
 # Create system user and update
 RUN addgroup pleroma && \
