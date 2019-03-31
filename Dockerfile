@@ -1,8 +1,8 @@
 FROM sirboops/elixir:1.7.4-alpine as elixir
 FROM alpine:3.8
 
-# Set pleroma hash
-ENV COMMIT_HASH="e58596bbdc7ed2b71f6e758f448d28bdf9354007"
+# Set pleroma version
+ENV PLE_TAG="0.9.999"
 
 # Create system user and update
 RUN addgroup pleroma && \
@@ -26,7 +26,7 @@ USER pleroma
 
 RUN	cd ~ && \
 	git clone https://git.pleroma.social/pleroma/pleroma.git/ . && \
-	git checkout $COMMIT_HASH && \
+	git checkout tags/v$PLE_TAG && \
 	mix local.hex --force && \
 	mix deps.get && \
 	mix local.rebar --force && \
