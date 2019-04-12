@@ -2,7 +2,7 @@ FROM sirboops/elixir:1.7.4-alpine as elixir
 FROM alpine:3.8
 
 # Set pleroma version
-ENV PLE_TAG="0.9.999"
+ENV PLE_TAG="0.9.9999"
 
 # Create system user and update
 RUN addgroup pleroma && \
